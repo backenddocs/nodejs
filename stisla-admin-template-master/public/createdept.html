@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+    name="viewport">
+  <title>Dashboard &mdash; Stisla</title>
+
+  <link rel="stylesheet" href="./dist/modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./dist/modules/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="./dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+
+  <link rel="stylesheet" href="./dist/modules/summernote/summernote-lite.css">
+  <link rel="stylesheet" href="./dist/modules/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="./dist/css/demo.css">
+  <link rel="stylesheet" href="./dist/css/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a>
+            </li>
+            <!-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li> -->
+          </ul>
+          <div class="search-element">
+            <!-- <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn" type="submit"><i class="ion ion-search"></i></button> -->
+          </div>
+        </form>
+        <ul class="navbar-nav navbar-right">
+          <!-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion ion-ios-bell-outline"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right"> -->
+          <!-- <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">View All</a>
+                </div>
+              </div>
+              <div class="dropdown-list-contentt">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <img alt="image" src="/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ujang Maman</b> has moved task <b>Fix bug footer</b> to <b>Progress</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Agung Ardiansyah</b> has moved task <b>Fix bug sidebar</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Ardian Rahardiansyah</b> has moved task <b>Fix bug navbar</b> to <b>Done</b>
+                    <div class="time">16 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img alt="image" src="/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                  <div class="dropdown-item-desc">
+                    <b>Alfa Zulkarnain</b> has moved task <b>Add logo</b> to <b>Done</b>
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li> -->
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+              <i class="ion ion-android-person d-lg-none"></i>
+              <div class="d-sm-none d-lg-inline-block">Hi, Admin</div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="profile.html" class="dropdown-item has-icon">
+                <i class="ion ion-android-person"></i> Profile
+              </a>
+              <a href="#" class="dropdown-item has-icon">
+                <i class="ion ion-log-out"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">Management System</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="/dist/img/avatar/avatar-1.jpeg">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name">placid digital</div>
+              <div class="user-role">
+                Administrator
+              </div>
+            </div>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Admin Dashboard</li>
+            <li class="active">
+              <a href="/dashboard.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+            </li>
+
+            <li class="menu-header">Employee</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span> employee</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="/addemp.html"><i class="ion ion-ios-circle-outline"></i>create employee</a></li>
+                <li><a href="./data"><i class="ion ion-ios-circle-outline"></i>Manage Employee </a></li>
+                <!-- <li><a href="buttons.html"><i class="ion ion-ios-circle-outline"></i> Buttons</a></li>
+                <li><a href="toastr.html"><i class="ion ion-ios-circle-outline"></i> Toastr</a></li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Department</span></a>
+              <ul class="menu-dropdown">
+                <!-- <li><a href="ion-icons.html"><i class="ion ion-ios-circle-outline"></i></a></li> -->
+                <li><a href="createdept.html"><i class="ion ion-ios-circle-outline"></i>create department</a></li>
+                <li><a href="./deptdata"><i class="ion ion-ios-circle-outline"></i> Manage department</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Attendence</span></a>
+              <ul class="menu-dropdown">
+                <!-- <li><a href="ion-icons.html"><i class="ion ion-ios-circle-outline"></i></a></li> -->
+                <li><a href="dailyattendence.html"><i class="ion ion-ios-circle-outline"></i>daily attendence</a></li>
+                <li><a href="./attendencereport"><i class="ion ion-ios-circle-outline"></i>Attendence Report</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Leave</span></a>
+              <ul class="menu-dropdown">
+                <!-- <li><a href="ion-icons.html"><i class="ion ion-ios-circle-outline"></i></a></li> -->
+                <li><a href="applyleave.html"><i class="ion ion-ios-circle-outline"></i>apply for leave</a></li>
+                <li><a href="./leavereport"><i class="ion ion-ios-circle-outline"></i>Leave</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Holiday</span></a>
+              <ul class="menu-dropdown">
+                <!-- <li><a href="ion-icons.html"><i class="ion ion-ios-circle-outline"></i></a></li> -->
+                <li><a href="fontawesome.html"><i class="ion ion-ios-circle-outline"></i>Add Holiday</a></li>
+                <li><a href="flag.html"><i class="ion ion-ios-circle-outline"></i> Manaage Holiday</a></li>
+              </ul>
+              <!-- </li>    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="ion ion-heart"></i> Badges <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="credits.html"><i class="ion ion-ios-information-outline"></i> Credits</a>
+            </li>          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="http://stisla.multinity.com/" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i> <div>Go PRO!</div>
+            </a>
+          </div>
+        </aside> -->
+      </div>
+      <div class="main-content">
+        <section class="section">
+          <h1 class="section-header">
+            <div>Create Department</div>
+          </h1>
+          <!-- <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-primary">
+                  <i class="ion ion-person"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total Admin</h4>
+                  </div>
+                  <div class="card-body">
+                    3
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-danger">
+                  <i class="ion ion-ios-paper-outline"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total Emp</h4>
+                  </div>
+                  <div class="card-body">
+                    50
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-warning">
+                  <i class="ion ion-paper-airplane"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Emp on Leave</h4>
+                  </div>
+                  <div class="card-body">
+                    5
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="card card-sm-3">
+                <div class="card-icon bg-success">
+                  <i class="ion ion-record"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Reports</h4>
+                  </div>
+                  <div class="card-body">
+                    40
+                  </div>
+                </div>
+              </div>
+            </div>                  
+          </div>
+          <div class="row">
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="float-right">
+                    <div class="btn-group">
+                      <a href="#" class="btn active">Week</a>
+                      <a href="#" class="btn">Month</a>
+                      <a href="#" class="btn">Year</a>
+                    </div>
+                  </div>
+                  <h4>Statistics</h4>
+                </div>
+                <div class="card-body">
+                  <canvas id="myChart" height="158"></canvas>
+                  <div class="statistic-details mt-sm-4">
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span> 7%</small>
+                      <div class="detail-value">$243</div>
+                      <div class="detail-name">Today's Sales</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-danger"><i class="ion-arrow-down-b"></i></span> 23%</small>
+                      <div class="detail-value">$2,902</div>
+                      <div class="detail-name">This Week's Sales</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span>9%</small>
+                      <div class="detail-value">$12,821</div>
+                      <div class="detail-name">This Month's Sales</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <small class="text-muted"><span class="text-primary"><i class="ion-arrow-up-b"></i></span> 19%</small>
+                      <div class="detail-value">$92,142</div>
+                      <div class="detail-name">This Year's Sales</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Today Activities</h4>
+                </div>
+                <div class="card-body">             
+                  <ul class="list-unstyled list-unstyled-border">
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="./dist/img/avatar/avatar-1.jpeg" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>10m</small></div>
+                        <div class="media-title">Farhan A Mujib</div>
+                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="./dist/img/avatar/avatar-2.jpeg" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>10m</small></div>
+                        <div class="media-title">Ujang Maman</div>
+                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="./dist/img/avatar/avatar-3.jpeg" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>10m</small></div>
+                        <div class="media-title">Rizal Fakhri</div>
+                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <img class="mr-3 rounded-circle" width="50" src="./dist/img/avatar/avatar-4.jpeg" alt="avatar">
+                      <div class="media-body">
+                        <div class="float-right"><small>10m</small></div>
+                        <div class="media-title">Alfa Zulkarnain</div>
+                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</small>
+                      </div>
+                    </li>
+                  </ul>
+                   <div class="text-center">
+                    <a href="#" class="btn btn-primary btn-round">
+                      View All
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>-->
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-4 col-sm-4">
+              <form method="post" class="needs-validation" novalidate="">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Post Personal Detail</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label>Department*</label>
+                      <input type="text" placeholder="enter department" id="department" name="title" class="form-control"
+                        required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>Designation*</label>
+                      <input type="text" placeholder="enterdesignation" id="designation" name="title"
+                        class="form-control" required><br>
+                       <div style="margin-left: 70px;">
+                    <button class="btn btn-primary">Save </button>
+                  </div>
+                    <!-- <div class="form-group">
+                      <label>Date of Birth*</label>
+                      <input type="date" name="title" id="dob" class="form-control" required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>phone*</label>
+                      <input type="text" placeholder="enter phoneno" id="phoneno" name="title" class="form-control"
+                        required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>permanent address*</label>
+                      <input type="text" placeholder="enter permanentaddress" id="paddress" name="title"
+                        class="form-control" required>
+
+                    </div>
+
+                    <div class="form-group">
+                      <label>Reference*</label>
+                      <input type="text" placeholder="enter Reference name" id="reference" name="title"
+                        class="form-control" required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>ReferenceNo*</label>
+                      <input type="text" placeholder="enter Reference no" id="referenceno" name="title"
+                        class="form-control" required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>marital status*</label>
+                      <input type="text" placeholder="enter marital status" id="mstatus" name="title"
+                        class="form-control" required>
+
+                    </div>
+                    <div class="form-group">
+                      <label>upload image*</label>
+                      <input type="file" name="title" class="form-control" required>
+
+                    </div>
+
+                  </div> -->
+                  <!-- <div class="card-footer">
+                    <button class="btn btn-primary">Save </button>
+                  </div>
+                   -->
+                </div>
+                <!-- </form> -->
+            </div>
+
+            <!-- <div class="col-lg-4 col-md-4 col-6 col-sm-4">
+              <div class="card">
+                <div class="card-header">
+                  <!-- <div class="float-right">
+                    <a href="#" class="btn btn-primary">View All</a>
+                  </div> -->
+                  <!-- <h4>post Company detail</h4>
+                  <div class="form-group">
+                    <label>Employee ID*</label>
+                    <input type="text" placeholder="enter Emplyee ID" id="empid" name="title" class="form-control"
+                      required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Department*</label>
+                    <input type="text" placeholder="enter Department" id="department" name="title" class="form-control"
+                      required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Designation*</label>
+                    <input type="text" placeholder="enter Designation" id="designation" name="title"
+                      class="form-control" required>
+
+                  </div> -->
+                  <!-- <div class="form-group">
+                    <label>Date of joining*</label>
+                    <input type="date" placeholder="enter permanentaddress" id="doj" name="title" class="form-control"
+                      required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>date of leaving*</label>
+                    <input type="date" placeholder="enter permanentaddress" id="dol" name="title" class="form-control"
+                      required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>Basic salary*</label>
+                    <input type="date" placeholder="enter Basic salary" id="bsalary" name="title" class="form-control"
+                      required>
+
+                  </div>
+                  <div class="form-group">
+                    <label>upload resume</label>
+                    <input type="file" name="uresume" class="form-control" required>
+                    <div class="form-group">
+                      <label>upload offer letter</label>
+                      <input type="file" name="uoffer" class="form-control" required>
+                      <div class="form-group">
+                        <label>upload joining letter*</label>
+                        <input type="date" name="ujoining" class="form-control" required>
+
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- <div class="card-body">
+                  <div class="table-responsive">
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="col-lg-4 col-md-4 col-4 col-sm-4">
+              <form method="post" class="needs-validation" novalidate="">
+                <div class="card"> 
+                  <!-- <div class="card-header">
+                    <h4>post Bank Account detail</h4>
+                  </div> -->
+                  <!-- <div class="card-body">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label>Account holder Name*</label>
+                        <input type="text" placeholder="enter account holder name" id="accountholdername" name="title"
+                          class="form-control" required>
+
+                        <div class="form-group">
+                          <label>Account Number*</label>
+                          <input type="text" placeholder="enter account number" id="accountnumber" name="title"
+                            class="form-control" required>
+
+                          <div class="form-group">
+                            <label>Bank Name*</label>
+                            <input type="text" placeholder="enter Bank Name" id="bankname" name="title"
+                              class="form-control" required>
+
+                            <div class="form-group">
+                              <label>Branch*</label>
+                              <input type="text" placeholder="enter Branch" id="branch" name="title"
+                                class="form-control" required>
+
+                              <div class="form-group">
+                                <label>Bank code*</label>
+                                <input type="text" placeholder="enter bank code" id="bankcode" name="title"
+                                  class="form-control" required>
+
+                                <div class="card-footer">
+                                  <button class="btn btn-primary">Submit</button>
+                                </div> -->
+
+              </form>
+            </div>
+          </div>
+
+
+        </section>
+      </div>
+      <!-- <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
+        </div>
+        <div class="footer-right"></div>
+      </footer>
+    </div> -->
+    </div>
+
+    <script src="/dist/modules/jquery.min.js"></script>
+    <script src="/dist/modules/popper.js"></script>
+    <script src="/dist/modules/tooltip.js"></script>
+    <script src="/dist/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="./dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="/dist/js/sa-functions.js"></script>
+
+    <script src="/dist/modules/chart.min.js"></script>
+    <script src="/dist/modules/summernote/summernote-lite.js"></script>
+
+    <script>
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            label: 'Statistics',
+            data: [460, 458, 330, 502, 430, 610, 488],
+            borderWidth: 2,
+            backgroundColor: 'rgb(87,75,144)',
+            borderColor: 'rgb(87,75,144)',
+            borderWidth: 2.5,
+            pointBackgroundColor: '#ffffff',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          legend: {
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 150
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          },
+        }
+      });
+    </script>
+    <script src="/dist/js/scripts.js"></script>
+    <script src="/dist/js/custom.js"></script>
+    <script src="/dist/js/demo.js"></script>
+</body>
+
+</html>
