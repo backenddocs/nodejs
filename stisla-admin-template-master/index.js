@@ -1,21 +1,28 @@
 const express = require("express")
 
 var mongoose = require('mongoose');
-const path = require('path');
+const ObjectId = mongoose.Types.ObjectId;
+//const multer = require("multer");
+// const multer = require("multer");
+
 
 mongoose.connect('mongodb://localhost:27017/empdb',
-  {
-    useNewUrlParser: true,
-    // useFindAndModify: false,
-    // useUnifiedTopology: true
-  }
-);var app = express()
-app.use(express.static('public'));
+    {
+        useNewUrlParser: true,
 
-// app.use(express.json());
-app.use(express.urlencoded({
-    extended: true,
-}));
+        useUnifiedTopology: true
+
+    }
+    
+);
+var app = express()
+const path = require('path');
+// const Upload = require("./upload/upload");
+// const empuploadmiddleware = require("./upload/empupload");
+
+app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'public'));
+app.set('view engine', 'ejs');
 
 const Posts = require("./schema")
 // var app = express()
@@ -34,7 +41,7 @@ app.get('/',(req,res)=>{
 app.get('/newfile',(req,res)=>{
     res.sendFile(path.join(__dirname, './views/index-1.html'))
 });
-app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
 // app.use(app.router);
 // app.use(app.router);
 app.post('/post', async (req, res) => {
@@ -130,7 +137,44 @@ app.post('/login', async (req, res) => {
         res.status(400).json({ msg: error })
     }
 });
+app.get('/data', async (req, res) => {
+    try {
+        const posts = await Posts.find()
+        if (!posts) throw Error('No Items');
+        console.log(posts)
+        res.render('manageemp', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
+    } catch (error) {
 
-app.listen(8085,()=>{
-    console.log('app is listening on port 8085')
+        res.status(400).json({ msg: error })
+    }
+});
+
+app.get('/deptdata', async (req, res) => {
+    try {
+        const posts = await Posts.find()
+        if (!posts) throw Error('No Items');
+        console.log(posts)
+        res.render('managedept', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
+    } catch (error) {
+
+        res.status(400).json({ msg: error })
+    }
+});
+app.get('/attendencereport', async (req, res) => {
+    try {
+        const posts = await Posts.find()
+        if (!posts) throw Error('No Items');
+        console.log(posts)
+        res.render('attendencereport', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
+    } catch (error) {
+
+        res.status(400).json({ msg: error })
+    }
+});
+
+app.listen(8088,()=>{
+    console.log('app is listening on port 8088')
 })
