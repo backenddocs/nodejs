@@ -149,12 +149,25 @@ app.get('/data', async (req, res) => {
         res.status(400).json({ msg: error })
     }
 });
+app.get('/manageleave', async (req, res) => {
+    try {
+        const posts = await Posts.find()
+        if (!posts) throw Error('No Items');
+        console.log(posts)
+        res.render('manageleave', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
+    } catch (error) {
+
+        res.status(400).json({ msg: error })
+    }
+});
+
 
 app.get('/deptdata', async (req, res) => {
     try {
         const posts = await Posts.find()
         if (!posts) throw Error('No Items');
-        console.log(posts)
+        console.log(posts);
         res.render('managedept', { posts });
         //res.status(200).json({ success: true, message: "data", data: posts })
     } catch (error) {
@@ -167,7 +180,7 @@ app.get('/attendencereport', async (req, res) => {
         const posts = await Posts.find()
         if (!posts) throw Error('No Items');
         console.log(posts)
-        res.render('attendencereport', { posts });
+        res.render('', { posts });
         //res.status(200).json({ success: true, message: "data", data: posts })
     } catch (error) {
 
