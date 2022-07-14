@@ -156,7 +156,7 @@ app.get('/manageleave', async (req, res) => {
         if (!posts) throw Error('No Items');
         console.log(posts)
         res.render('manageleave', { posts });
-        //res.status(200).json({ success: true, message: "data", data: posts })
+        // res.status(200).json({ success: true, message: "data", data: posts })
     } catch (error) {
 
         res.status(400).json({ msg: error })
