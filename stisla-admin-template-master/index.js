@@ -24,7 +24,8 @@ app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
 
-const Posts = require("./schema")
+const Posts = require("./schema");
+const lposts=require("./leaveschema");
 // var app = express()
 // app.use(express.static('public'));
 
@@ -151,7 +152,7 @@ app.get('/data', async (req, res) => {
 });
 app.get('/manageleave', async (req, res) => {
     try {
-        const posts = await Posts.find()
+        const posts = await lposts.find()
         if (!posts) throw Error('No Items');
         console.log(posts)
         res.render('manageleave', { posts });
