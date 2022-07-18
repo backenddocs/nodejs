@@ -1,7 +1,7 @@
 const express = require("express")
 
 var mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
+
 //const multer = require("multer");
 // const multer = require("multer");
 
@@ -19,6 +19,8 @@ var app = express()
 const path = require('path');
 // const Upload = require("./upload/upload");
 // const empuploadmiddleware = require("./upload/empupload");
+
+app.use(express.json())
 
 app.use(express.static('public'));
 app.set('views', path.join(__dirname, 'public'));
@@ -48,31 +50,8 @@ app.use(express.static(__dirname + "/public"));
 app.post('/post', async (req, res) => {
 
     try {
-        console.log({
-            name:req.body.name,
-            fathername:req.body.fathername,
-            DoB: req.body.dob,
-            gender:req.body.gender,
-            phone1: req.body.phone1,
-            phone2: req.body.phone2,
-            localaddress: req.body.localaddress,
-            parmanentaddress:req.body.paddress,
-            nationality :req.body.nationality,
-            reference1 :req.body.reference1,
-            reference1phone:req.body.reference1phone,
-            reference2:req.body.reference2,
-            reference2phone:req.body.reference2phone,
-            maritalstatus:req.body.mstatus,
-            immg:req.body.file,
-            accountholdername:req.body.accountholdername,
-            accountnumber:req.body.accountnumber,
-            bankname:req.body.bankname,
-            branch:req.body.branch,
-            // bankcode:req.body.bankcode,
-            empid:req.body.empid,
-            department:req.body.department,
-            BasicSalary:req.body.basicsalary,
-                }, "data")
+        console.log(req.body, "data")
+
         Posts.create({
             name: req.body.name,
             fathername: req.body.fathername,
@@ -111,9 +90,10 @@ app.post('/post', async (req, res) => {
     }
 })
 app.post('/login', async (req, res) => {
+console.log("api call");
     try {
-        // console.log("name===========>>>>>>>>>>>>", req.body.name);
-        // console.log("password===========>>>>>>>>>>>>", req.body.password);
+         console.log("name===========>>>>>>>>>>>>", req.body.emailid);
+         console.log("password===========>>>>>>>>>>>>", req.body.password);
         const payload = {
             name: req.body.name,
             password: req.body.password
