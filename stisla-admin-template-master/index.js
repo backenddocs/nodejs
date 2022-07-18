@@ -28,6 +28,7 @@ app.set('view engine', 'ejs');
 
 const Posts = require("./schema");
 const lposts=require("./leaveschema");
+const dposts=require("./departschema");
 // var app = express()
 // app.use(express.static('public'));
 
@@ -75,6 +76,30 @@ app.post('/post', async (req, res) => {
             department:req.body.department,
             BasicSalary:req.body.basicsalary,
         
+        })
+            .then(data => {
+                console.log(data, "data1")
+                res.status(200).json({ data })
+            }).catch(err => {
+                console.log(err, "err");
+                res.status(422).json({ err })
+            })
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
+
+app.post('/departpost', async (req, res) => {
+
+    try {
+        console.log(req.body, "data")
+
+        Posts.create({
+            department: req.body.department,
+    designation: req.body.designation,
+    totalemp:req.body.totalemp,
         })
             .then(data => {
                 console.log(data, "data1")
