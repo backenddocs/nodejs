@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/empdb',
         useUnifiedTopology: true
 
     }
-    
+
 );
 var app = express()
 const path = require('path');
@@ -27,8 +27,8 @@ app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
 
 const Posts = require("./schema");
-const lposts=require("./leaveschema");
-const dposts=require("./departschema");
+const lposts = require("./leaveschema");
+const dposts = require("./departschema");
 // var app = express()
 // app.use(express.static('public'));
 
@@ -39,10 +39,10 @@ const dposts=require("./departschema");
 
 // //Set Path
 // app.use(express.static(path.join(__dirname, 'public')));
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './views/index-.html'))
 });
-app.get('/newfile',(req,res)=>{
+app.get('/newfile', (req, res) => {
     res.sendFile(path.join(__dirname, './views/index-1.html'))
 });
 app.use(express.static(__dirname + "/public"));
@@ -57,25 +57,25 @@ app.post('/post', async (req, res) => {
             fathername: req.body.fathername,
             DoB: req.body.DoB,
             gender: req.body.gender,
-            phone1:req.body.phone1 ,
+            phone1: req.body.phone1,
             phone2: req.body.phone2,
-            localaddress:req.body.localaddress,
-            parmanentaddress:req.body.parmanentaddress,
-            nationality :req.body.nationality,
-            reference1 :req.body.reference1,
-            reference1phone:req.body.reference1phone,
-            reference2:req.reference2,
-            reference2phone:req.body.reference2phone,
-            maritalstatus:req.body.maritalstatus,
-            accountholdername:req.body.accountholdername,
-            accountnumber:req.body.accountnumber,
-            bankname:req.body.bankname,
-            branch:req.body.branch,
-            bankcode:req.body.bankcode,
-            empid:req.body.empid,
-            department:req.body.department,
-            BasicSalary:req.body.basicsalary,
-        
+            localaddress: req.body.localaddress,
+            parmanentaddress: req.body.parmanentaddress,
+            nationality: req.body.nationality,
+            reference1: req.body.reference1,
+            reference1phone: req.body.reference1phone,
+            reference2: req.reference2,
+            reference2phone: req.body.reference2phone,
+            maritalstatus: req.body.maritalstatus,
+            accountholdername: req.body.accountholdername,
+            accountnumber: req.body.accountnumber,
+            bankname: req.body.bankname,
+            branch: req.body.branch,
+            bankcode: req.body.bankcode,
+            empid: req.body.empid,
+            department: req.body.department,
+            BasicSalary: req.body.basicsalary,
+
         })
             .then(data => {
                 console.log(data, "data1")
@@ -91,15 +91,15 @@ app.post('/post', async (req, res) => {
 })
 
 
-app.post('/departpost', async (req, res) => {
+app.post('/deptpost', async (req, res) => {
 
     try {
         console.log(req.body, "data")
 
-        Posts.create({
+        dposts.create({
             department: req.body.department,
-    designation: req.body.designation,
-    totalemp:req.body.totalemp,
+            designation: req.body.designation,
+            totalemp: req.body.totalemp,
         })
             .then(data => {
                 console.log(data, "data1")
@@ -113,11 +113,12 @@ app.post('/departpost', async (req, res) => {
         res.status(400).json({ message: error.message })
     }
 })
+
 app.post('/login', async (req, res) => {
-console.log("api call");
+    console.log("api call");
     try {
-         console.log("name===========>>>>>>>>>>>>", req.body.emailid);
-         console.log("password===========>>>>>>>>>>>>", req.body.password);
+        console.log("name===========>>>>>>>>>>>>", req.body.emailid);
+        console.log("password===========>>>>>>>>>>>>", req.body.password);
         const payload = {
             name: req.body.name,
             password: req.body.password
@@ -139,11 +140,11 @@ app.post('/leavepost', async (req, res) => {
         console.log(req.body, "data")
 
         lposts.create({
-            name:req.body.name,
-    leavetype: req.body.leavetype,
-    from:req.body.from,
-    to: req.body.to,
-    comment: req.body.comment,
+            name: req.body.name,
+            leavetype: req.body.leavetype,
+            from: req.body.from,
+            to: req.body.to,
+            comment: req.body.comment,
         })
             .then(data => {
                 console.log(data, "data1")
@@ -183,7 +184,7 @@ app.get('/manageleave', async (req, res) => {
 });
 app.get('/deptdata', async (req, res) => {
     try {
-        const posts = await Posts.find()
+        const posts = await  dposts.find()
         if (!posts) throw Error('No Items');
         console.log(posts);
         res.render('managedept', { posts });
@@ -218,6 +219,6 @@ app.get('/leavedata', async (req, res) => {
         res.status(400).json({ msg: error })
     }
 });
-app.listen(8088,()=>{
+app.listen(8088, () => {
     console.log('app is listening on port 8088')
 })
