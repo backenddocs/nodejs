@@ -4,14 +4,23 @@
   "description": "Stisla Admin Template is a responsive HTML5 admin template based on Bootstrap 4. Stisla will make it easier for you to create your own admin interface. Read more on https://stisla.multinity.com/",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.1",
+    "mongoose-unique-validator": "^3.1.0",
     "node": "^18.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
