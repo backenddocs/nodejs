@@ -45,8 +45,7 @@ app.get('/newfile',(req,res)=>{
     res.sendFile(path.join(__dirname, './views/index-1.html'))
 });
 app.use(express.static(__dirname + "/public"));
-// app.use(app.router);
-// app.use(app.router);
+
 app.post('/post', async (req, res) => {
 
     try {
@@ -102,22 +101,37 @@ console.log("api call");
         // alert("data matched===========>", posts);
         console.log("data=============>>>>>>>>>>", posts, "---------------------");
         if (posts) throw Error('No Items');
-        // if (posts) {
-        //     return res.send({ error: false, data: posts[0], message: posts[0].email, iddd: posts[0].id });
-        // }
-        // else {
-        //     return res.send({ error: true, message: 'Not Get Data.', status: 201 });
-        // }
 
-
-        // res.status(200).json({ success: true, message: "login successfully", data: posts })
-        // return res.json(posts);
     }
     catch (error) {
 
         res.status(400).json({ msg: error })
     }
 });
+app.post('/leavepost', async (req, res) => {
+
+    try {
+        console.log(req.body, "data")
+
+        lposts.create({
+            name:req.body.name,
+    leavetype: req.body.leavetype,
+    from:req.body.from,
+    to: req.body.to,
+    comment: req.body.comment,
+        })
+            .then(data => {
+                console.log(data, "data1")
+                res.status(200).json({ data })
+            }).catch(err => {
+                console.log(err, "err");
+                res.status(422).json({ err })
+            })
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
 app.get('/data', async (req, res) => {
     try {
         const posts = await Posts.find()
@@ -132,18 +146,16 @@ app.get('/data', async (req, res) => {
 });
 app.get('/manageleave', async (req, res) => {
     try {
-        const posts = await lposts.find()
+        const posts = await Posts.find()
         if (!posts) throw Error('No Items');
         console.log(posts)
-        res.render('manageleave', { posts });
-        // res.status(200).json({ success: true, message: "data", data: posts })
+        res.render('manageemp', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
     } catch (error) {
 
         res.status(400).json({ msg: error })
     }
 });
-
-
 app.get('/deptdata', async (req, res) => {
     try {
         const posts = await Posts.find()
@@ -169,6 +181,18 @@ app.get('/attendencereport', async (req, res) => {
     }
 });
 
+app.get('/leavedata', async (req, res) => {
+    try {
+        const posts = await lposts.find()
+        if (!posts) throw Error('No Items');
+        console.log(posts)
+        res.render('manageemp', { posts });
+        //res.status(200).json({ success: true, message: "data", data: posts })
+    } catch (error) {
+
+        res.status(400).json({ msg: error })
+    }
+});
 app.listen(8088,()=>{
     console.log('app is listening on port 8088')
 })
